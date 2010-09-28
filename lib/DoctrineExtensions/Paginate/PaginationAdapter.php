@@ -119,7 +119,11 @@ class PaginationAdapter implements \Zend_Paginator_Adapter_Interface
             $ids
         );
 
-        return $this->createWhereInQuery($ids)->getResult();
+        $results2 = array();
+        foreach ($results as $result) {
+        	$results2[] = array($this->namespace => $result);
+        }
+        return $results2;
     }
 
     /**
